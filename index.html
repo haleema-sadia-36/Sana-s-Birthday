@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e0,#fff1f6);
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* PAGE STRUCTURE */
+.page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:40px;
+}
+
+/* PAGE 1: CUT CAKE */
+#page1{
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+}
+.cake{
+    font-size:140px;
+    cursor:pointer;
+    transition:.4s;
+}
+.cake.cut{transform:rotate(-15deg) scale(1.1);}
+#cakeMsg{
+    margin-top:20px;
+    font-size:1.4rem;
+    opacity:0;
+    transition:.6s;
+}
+
+/* PAGE 2: MAIN CONTENT */
+#page2{display:none}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#ff6ec4,#7873f5); /* updated gradient colors */
+    color:white;
+    padding:70px 8% 90px;
+    width:100%;
+    position:relative;
+    text-align:center;
+}
+header::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background:white;
+    border-top-left-radius:100% 80px;;
+    border-top-right-radius:100% 80px;
+}
+.name{
+    font-family:'Playfair Display',serif;
+    font-size:3.2rem;
+    animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+    from{text-shadow:0 0 12px #fff}
+    to{text-shadow:0 0 28px #ffd1dc}
+}
+header p{
+    margin-top:12px;
+    font-size:1.15rem;
+    opacity:.95;
+}
+
+/* MUSIC BUTTON */
+#musicBtn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:white;
+    border:none;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    cursor:pointer;
+    font-size:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* SECTIONS */
+section{padding:65px 8%;}
+h2{
+    font-family:'Playfair Display',serif;
+    font-size:2.2rem;
+    color:#e75480;
+    margin-bottom:30px;
+    text-align:center;
+}
+.message{
+    max-width:850px;
+    margin:auto;
+    line-height:1.9;
+    text-align:center;
+}
+
+/* SLIDESHOW */
+.slideshow{
+    max-width:800px;
+    margin:30px auto;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+.slide{display:none;}
+.slide.active{display:block;}
+.slide img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+/* REASONS YOU ARE AMAZING CARDS */
+.reasons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    transition:transform .3s;
+}
+.card:hover{transform:translateY(-6px);}
+.card h3{color:#e75480;margin-bottom:10px;}
+
+/* OUR JOURNEY CARDS */
+.timeline{max-width:800px;margin:auto;margin-top:40px;}
+.event{
+    background:white;
+    padding:22px;
+    margin:20px 0;
+    border-left:5px solid #ff758c;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+/* FOOTER */
+footer{
+    background:linear-gradient(135deg,#ff6ec4,#7873f5);
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+footer .line{
+    width:50px;
+    height:3px;
+    background:white;
+    margin:10px auto;
+    border-radius:10px;
+}
+footer p{
+    font-size:1rem;
+    opacity:.95;
+}
+
+/* CONFETTI */
+.confetti{
+    position:fixed;
+    top:-10px;
+    width:10px;
+    height:10px;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* BALLOONS & HEARTS */
+.floating{
+    position:fixed;
+    bottom:-100px;
+    font-size:40px;
+    animation:float linear infinite;
+}
+@keyframes float{
+    to{transform:translateY(-120vh);}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    .cake{font-size:110px;}
+    .name{font-size:2.4rem;}
+    .slide img{height:240px;}
+    .floating{font-size:30px;}
+}
+
+
+
+
+.slideshow {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  height: 400px;        /* desktop height */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mobile size */
+@media (max-width: 768px) {
+  .slide img {
+    height: 650px;      /* mobile height */
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+<source src="audio/happy.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+    <h1>Plzz Cut the Cake & next surprise🎉</h1>
+    <div class="cake" id="cake" onclick="cutCake()">🎂</div>
+    <div id="cakeMsg">Happy Birthday My Sweet Czn Sana ✨ 💖</div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2">
+
+<header>
+    <h1 class="name">Happy Birthday Sana 🎂</h1>
+    <p>May your day be filled with love, smiles, and beautiful memories</p>
+    <button id="musicBtn">🔊</button>
+</header>
+
+<section>
+<h2>A Special Wish</h2>
+<div class="message">
+You are not just my cousion, you are my heart <b><i>Sisters.</i></b>Your kindness touches hearts and your presence makes every moment Happy.
+Wishing you endless love, happiness, and success.
+</div>
+</section>
+
+<section>
+  <h2>Beautiful Memories</h2>
+    <div class="slideshow">
+    <div class="slide active">
+      <img src="Pictures/photos.jpeg" alt=""></div>
+      <div class="slide">
+      <img src="Pictures/poc.jpeg" alt=""></div>
+    <div class="slide">
+      <img src="Pictures/image.jpeg" alt=""></div>
+      <div class="slide">
+      <img src="Pictures/poct.jpeg" alt=""></div>
+    <div class="slide">
+      <img src="Pictures/phot.jpeg" alt=""></div>
+    <div class="slide">
+      <img src="Pictures/po.jpeg" alt=""></div>
+        <div class="slide">
+      <img src="Pictures/lt.jpeg" alt=""></div>
+        <div class="slide">
+      <img src="Pictures/plt.jpeg" alt=""></div>
+  </div>
+</section>
+
+<section>
+<h2>Reasons You Are Amazing</h2>
+<div class="reasons">
+<div class="card">
+<h3>Your Smile</h3>
+<p>Rare edition-appears only when you're truly Happy.😜✨</p>
+</div>
+<div class="card">
+<h3>Your Kind Heart</h3>
+<p>You care for everyone and make them feel loved and (bs thori si🤏🏻) valued.</p>
+</div>
+<div class="card">
+<h3>Your Strength</h3>
+<p>You handle stress, drama, and annoying people like a boss.😎🔥
+Serious nai lyna 😁</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Our Journey</h2>
+<div class="timeline">
+<div class="event">🌸 Family made us cousions</div>
+<div class="event">✨ Moments that became memories</div>
+<div class="event">💖 Laughter we shared</div>
+<div class="event">🌟 Many beautiful years ahead(insha'allah)</div>
+<div class="event">💕 Forever bonded, forever cousins</div>
+</div>
+</section>
+
+<section>
+<h2>Last Wish</h2>
+<div class="message">
+Again Happy Birthday,my sweet cousin! 💖  
+May Allah bless you good health, success,and the love your beautiful heart deserves.
+May yor life be filled with laughter, dreams coming true. 
+<br><b><i>Stay Happy - Today and Always.(Ameen)💐</i></b>
+</div>
+</section>
+
+<footer>
+    <div class="line"></div>
+    <p><b><i>Made with endless love for Sana 💖 </i></b></p>
+    <div class="line"></div>
+    <b><i>Created by @Haleema Sadia</i></b>
+</footer>
+
+</div>
+
+<script>
+/* CUT CAKE PAGE */
+function cutCake(){
+    cake.classList.add("cut");
+    cakeMsg.style.opacity=1;
+    setTimeout(()=>{
+        page1.style.display="none";
+        page2.style.display="block";
+        document.getElementById("bgMusic").play(); // start music on page2
+    },2000);
+}
+
+/* MUSIC BUTTON */
+const musicBtn=document.getElementById("musicBtn");
+const bgMusic=document.getElementById("bgMusic");
+musicBtn.addEventListener("click",()=>{
+    if(bgMusic.paused){bgMusic.play(); musicBtn.textContent="🔊";}
+    else{bgMusic.pause(); musicBtn.textContent="🔇";}
+});
+
+/* SLIDESHOW */
+let slides=document.querySelectorAll(".slide");
+let i=0;
+setInterval(()=>{
+    slides[i].classList.remove("active");
+    i=(i+1)%slides.length;
+    slides[i].classList.add("active");
+},3000);
+
+/* CONFETTI */
+for(let i=0;i<40;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=3+Math.random()*5+"s";
+    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(c);
+}
+
+/* BALLOONS & HEARTS */
+const shapes=["🎈","❤️"];
+for(let i=0;i<8;i++){
+    let f=document.createElement("div");
+    f.className="floating";
+    f.innerHTML=shapes[Math.floor(Math.random()*shapes.length)];
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=8+Math.random()*6+"s";
+    document.body.appendChild(f);
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
